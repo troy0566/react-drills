@@ -9,19 +9,9 @@ class App extends Component {
       friends: ["Rachel","Monica","Phoebe","Joey","Chandler","Ross"],
       textentry: ""
    }
-   this.handleUpdate = this.handleUpdate.bind(this);
   }
-
-  handleUpdate(event){
-    console.log(event.target.value);
-    this.setState({
-      textentry: event.target.value
-    })
-  }
-    
+   
   render() {
-    var fewerFriends = this.state.friends.map(friend=>friend).filter(friend=>friend.startsWith(this.state.textentry))
- 
     return (
       <div className="App">
         <div className="App-header">
@@ -31,9 +21,8 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <input onChange={this.handleUpdate}></input>
         <ol>
-          {fewerFriends.map(fewerFriends=><h2>{fewerFriends}</h2>)}
+          {this.state.friends.map(friend=><h2>{friend}</h2>)}
         </ol>
       </div>
     );

@@ -6,7 +6,7 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      friends: ["Rachel","Monica","Phoebe","Joey","Chandler","Ross",],
+      friends: ["Rachel","Monica","Phoebe","Joey","Chandler","Ross"],
       textentry: ""
     }
   
@@ -16,14 +16,12 @@ class App extends Component {
   handleUpdate(event){
     console.log(event.target.value);
     this.setState({
-      
-      textentry: event.target.value
+       textentry: event.target.value
     })
   }
 
   render() {
-    
-    return (
+      return (
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -34,7 +32,7 @@ class App extends Component {
         </p>
         <input onChange={this.handleUpdate}></input>
         <ol>
-          {this.state.friends.map((friend)=>friend).filter((friend)=> friend!=this.state.textentry)}
+          {this.state.friends.filter(friend=>friend.startsWith(this.state.textentry)).map(friends=><h2>{friends}</h2>)}
         </ol>
       </div>
     );
